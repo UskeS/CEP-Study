@@ -1,6 +1,7 @@
 # CEP-Study
 CEPのお勉強用リポジトリ
-* CEP 9.0で作業
+* [CC Extension Builder](https://marketplace.visualstudio.com/items?itemName=hennamann.cc-extension-builder)のtopcoatにてCEPをビルド
+* バージョンはCEP 9.0
 * 機能をあまり想定してなかった
 * npm-scriptによるタスクランナーを設定したい
 * node.jsを利用したい
