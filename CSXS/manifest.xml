@@ -12,14 +12,14 @@
 			You may also need to change the CEP version in order to support certain apps. -->
             
             <!-- Photoshop -->
-            <Host Name="PHXS" Version="[16.0,99.9]" />
-            <Host Name="PHSP" Version="[16.0,99.9]" />
+            <!-- <Host Name="PHXS" Version="[16.0,99.9]" />
+            <Host Name="PHSP" Version="[16.0,99.9]" /> -->
             
             <!-- Illustrator -->
             <!-- <Host Name="ILST" Version="[18.0,99.9]" /> -->
             
             <!-- InDesign -->
-            <!-- <Host Name="IDSN" Version="[10.0,99.9]" /> -->
+            <Host Name="IDSN" Version="10.0" />
             
              <!-- InCopy -->
             <!-- <Host Name="AICY" Version="[10.0,99.9]" /> -->  
