@@ -15,7 +15,7 @@ CEPのお勉強用リポジトリ
             <Parameter>--enable-nodejs</Parameter>
         </CEFCommandLine>
         ```
-    3. フォルダにnpmのrequestモジュールをインストール（HTTPリクエストとかしたい）
-        * `$ npm install request`
-        * CEPのフォルダ内に[package-lock.json](package-lock.json)と node_modules が生成される
-        * 面倒くさいのでnode_modulesは[.gitignore](.gitignore)に追加した
+2. フォルダにnpmのrequestモジュールをインストール（HTTPリクエストとかしたい）
+     * `$ npm install request`
+     * CEPのフォルダ内に[package-lock.json](package-lock.json)と node_modules が生成される
+      * 面倒くさいのでnode_modulesは[.gitignore](.gitignore)に追加した
