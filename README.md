@@ -17,6 +17,53 @@ CEPのお勉強用リポジトリ
         </CEFCommandLine>
         ```
 2. フォルダにnpmのrequestモジュールをインストール（HTTPリクエストとかしたい）
-     * `$ npm install request`
-     * CEPのフォルダ内に[package-lock.json](package-lock.json)と node_modules が生成される
-      * 面倒くさいのでnode_modulesは[.gitignore](.gitignore)に追加した
+    * `$ npm install request`
+    * CEPのフォルダ内に[package-lock.json](package-lock.json)と node_modules が生成される
+    * 面倒くさいのでnode_modulesは[.gitignore](.gitignore)に追加した
+3. Babelをインストール（新しいESで記述してES3にトランスパイル仕組みを用意したい）
+    1. `$ npm init`
+        * いろいろ聞かれるが全部Enterを押して[package.json](package.json)を生成した
+    2. `$ npm install --save-dev @babel/core @babel/cli @babel/preset-env`
+        * [pachage-lock.json](package-lock.json)にいろいろ記述される（これひょっとして.gitignore入れたほうがいい？）
+    3. Babelの設定ファイルを作成する
+        * フォルダのルートに[babel.config.json](babel.config.json)を作成
+        * 下記を記述
+            ```json
+            {
+                "presets": ["@babel/preset-env", "@babel/preset-typescript"]
+            }
+            ```
+        * `presets`については下記の通り（[参考](https://qiita.com/koedamon/items/92c986456e4b9e845acd)）
+            * `@babel/preset-env`: ECMAScript用
+            * `@babel/preset-flow`: Flow用
+            * `@babel/preset-react`: React用
+            * `@babel/preset-typescript`: Typescript用
+        * 今回はECMAScriptのバージョン違いに対応すればいいんだけど、将来的にTS書きたいとも思っているのでTS用も書いておく
+        * 各presetに詳細な設定（`targets`指定）をしたい場合は配列で囲む  
+            `["@babel/preset-env", {<@babel/preset-envの設定値>}]`
+        * ES3対応のブラウザはIE6になるので、IE6をターゲットにする
+            ```json
+            {
+                "presets": [
+                    ["@babel/preset-env", {
+                        "targets": {
+                            "ie": 6
+                        }
+                    }], "@babel/preset-typescript"]
+            }
+            ```
+        * PolyfillとuseBuiltInsオプション
+            * `"useBuiltIns": "usage"`を追加
+            * ただし experimental らしい
+            * `Promise`とか使わない限りは気にしなくていいかもしれない……
+            ```json
+            {
+                "presets": [
+                    ["@babel/preset-env", {
+                        "targets": {
+                            "ie": 6
+                        },
+                        "useBuiltIns": "usage"
+                    }], "@babel/preset-typescript"]
+            }
+            ```
