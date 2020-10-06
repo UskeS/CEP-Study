@@ -1,0 +1,27 @@
+{
+  "name": "cep-study",
+  "version": "1.0.0",
+  "description": "CEPのお勉強用リポジトリ",
+  "main": "index.js",
+  "dependencies": {
+    "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UskeS/CEP-Study.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UskeS/CEP-Study/issues"
+  },
+  "homepage": "https://github.com/UskeS/CEP-Study#readme"
+}
