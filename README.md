@@ -67,3 +67,41 @@ CEPのお勉強用リポジトリ
                     }], "@babel/preset-typescript"]
             }
             ```
+        * 試しにトランスパイルしたら怒られが発生した
+          * `useBuiltIns`オプション使うならcore-jsをインストールせよとのこと
+          * `npm install --save core-js@3`した
+          * そういう問題でもなかった
+            * `@babel/preset-typescript`モジュールが見当たらないらしい
+            * core-js@3をインストールしたけど怒られたので、babel.config.jsonから該当オプションを削除してみた
+            ```json
+            {
+                "presets": [
+                    ["@babel/preset-env", {
+                        "targets": {
+                            "ie": 6
+                        }
+                    }]
+                ]
+            }
+            ```
+        * トランスパイル成功
+4. 自動トランスパイルを仕込む
+    * [.babelrc](.babelrc)を追加
+    * 下記を記述
+      ```json
+      {
+            "presets": [
+                ["env", {
+                    "targets": {
+                        "ie": 6
+                    }
+                }]
+            ]
+        }
+      ```
+    * `./node_modules/.bin/babel src/host.js -w -o jsx/host.jsx`を実行
+      * `-w`オプションでファイルをwatchする
+      * `-o`オプションでファイルとして出力する
+      * このコマンドは[src/host.js](src/host.js)ファイルが保存されたら[jsx/host.jsx](jsx/host.jsx)にトランスパイルする、という意味
+      * [参考にしたサイト](https://barikanblog.com/javascript-es6-babel/)
+    * リポジトリがぐっっっちゃぐちゃになったのでリセットしたい
